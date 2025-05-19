@@ -16,6 +16,7 @@
         .attribution {
             font-size: 11px;
             text-align: center;
+            display: none;
         }
 
         .attribution a {
@@ -25,39 +26,116 @@
 </head>
 
 <body>
+    <main class="wrapper">
+        <div class="form-container">
+            <!-- contact form start -->
+            <form class="contact-form" novalidate>
+                <h1 class="contact-form__heading">
+                    Contact Us
+                </h1>
 
-    Contact Us
+                <label for="first-name">
+                    First Name
+                    <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input type="text" name="first-name" id="first-name" required
+                    aria-describedby="first-name-error first-name-pattern">
+                <span id="first-name-error" class="sr-only" role="alert">
+                    This field is required.
+                </span>
+                <span id="first-name-pattern" class="sr-only">
+                    Only alphabetic characters are allowed.
+                </span>
 
-    First Name
-    This field is required
+                <label for="last-name">
+                    Last Name
+                    <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input type="text" name="last-name" id="last-name" required
+                    aria-describedby="last-name-error last-name-pattern">
+                <span id="last-name-error" class="sr-only" role="alert">
+                    This field is required.
+                </span>
+                <span id="last-name-pattern" class="sr-only">
+                    Only alphabetic characters are allowed.
+                </span>
 
-    Last Name
-    This field is required
+                <label for="email">
+                    Email Address
+                    <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input type="email" name="email" id="email" required aria-describedby="email-error email-pattern">
+                <span id="email-error" class="sr-only">
+                    This field is required.
+                </span>
+                <span id="email-pattern" class="sr-only">
+                    Please enter a valid email address.
+                </span>
 
-    Email Address
-    Please enter a valid email address
-    This field is required
+                <fieldset aria-describedby="query-type-error">
+                    <legend>
+                        Query Type
+                        <span class="required" aria-hidden="true">*</span>
+                    </legend>
+                    <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry" required>
+                    <label for="general-enquiry">
+                        General Enquiry
+                    </label>
 
-    Query Type
-    General Enquiry
-    Support Request
-    Please select a query type
+                    <input type="radio" name="query-type" id="support-request" value="support-request">
+                    <label for="support-request">
+                        Support Request
+                    </label>
+                    <span id="query-type-error" class="sr-only">
+                        This field is required. Please select a query type
+                    </span>
+                </fieldset>
 
-    Message
-    This field is required
+                <label for="message">
+                    Message
+                    <span class="required" aria-hidden="true">*</span>
+                </label>
+                <textarea name="message" id="message" required aria-describedby="message-error"></textarea>
+                <span id="message-error" class="sr-only">
+                    This field is required. Please enter your message.
+                </span>
 
-    I consent to being contacted by the team
-    To submit this form, please consent to being contacted
+                <div class="consent">
+                    <input type="checkbox" name="consent" id="consent-agree" required aria-describedby="consent-error">
+                    <label for="consent-agree">
+                        I consent to being contacted by the team
+                        <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <span id="consent-error" class="sr-only">
+                        To submit this form, please consent to being contacted
+                    </span>
+                </div>
 
-    Submit
+                <button type="submit">Submit</button>
 
-    Message Sent!
-    Thanks for completing the form. We'll be in touch soon!
+                <!-- toast notification -->
+                <div class="contact-form-success">
+                    <div class="contact-form-success__header">
+                        <img src="/assets/images/icon-success-check.svg" alt="success icon">
+                        <p class="contact-form-success__title">
+                            Message Sent!
+                        </p>
+                    </div>
+                    <p class="contact-form-success__description">
+                        Thanks for completing the form. We'll be in touch soon!
+                    </p>
+                </div>
+            </form>
+            <!-- contact form end -->
+        </div>
+    </main>
 
-    <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-        Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <footer class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+        Coded by
+        <a href="https://www.frontendmentor.io/profile/adeysh">Adesh Katiya</a>.
+    </footer>
 </body>
 
 </html>
