@@ -1,0 +1,62 @@
+@use './functions' as *;
+
+:root {
+    /* Colors */
+
+    // primary
+    --green-200: #dff1e7;
+    --green-600: #0c7d69;
+    --red: #d73c3c;
+
+    // neutral
+    --pure-white: #ffffff;
+    --grey-500: #87a3a6;
+    --grey-900: #2b4246;
+
+    // naming colors
+    --Apple-Green: var(--green-200);
+    --Surfie-Green: var(--green-600);
+    --Valencia: var(--red);
+
+    --White: var(--pure-white);
+    --Granny-Smith: var(--grey-500);
+    --Limed-Spruce: var(--grey-900);
+
+    /* Typography */
+
+    // font-family
+    --ff: 'Karla', sans-serif;
+
+    // font-size
+    --fs-body: #{rem(16)};
+    --fs-small: #{rem(18)};
+    --fs-medium: #{rem(24)};
+    --fs-large: #{rem(32)};
+
+    // font-weight
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    // text-presets
+
+    .text-heading-l {
+        font-family: var(--ff);
+        font-weight: var(--fw-bold);
+        font-style: normal;
+        font-size: var(--fs-large);
+    }
+
+    .text-label {
+        font-family: var(--ff);
+        font-weight: var(--fw-regular);
+        font-style: normal;
+        font-size: var(--fs-body);
+    }
+
+    .text-body {
+        font-family: var(--ff);
+        font-weight: var(--fw-regular);
+        font-style: normal;
+        font-size: var(--fs-body);
+    }
+}
