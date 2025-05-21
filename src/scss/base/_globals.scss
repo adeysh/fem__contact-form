@@ -11,6 +11,7 @@ body {
     font-size: var(--fs-body);
     background-color: var(--Apple-Green);
     @include a.flexbox($direction: column, $align: center, $justify: center);
+    height: auto;
 }
 
 .sr-only {
@@ -23,4 +24,12 @@ body {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+.error-visible {
+    color: var(--Valencia);
+}
+
+h1 {
+    margin: 0;
 }

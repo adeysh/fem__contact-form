@@ -30,88 +30,121 @@
         <div class="form-container">
             <!-- contact form start -->
             <form class="contact-form" novalidate>
-                <h1 class="contact-form__heading">
+                <h1 class="contact-form__heading text-heading-l">
                     Contact Us
                 </h1>
 
-                <label for="first-name">
-                    First Name
-                    <span class="required" aria-hidden="true">*</span>
-                </label>
-                <input type="text" name="first-name" id="first-name" required
-                    aria-describedby="first-name-error first-name-pattern">
-                <span id="first-name-error" class="sr-only" role="alert">
-                    This field is required.
-                </span>
-                <span id="first-name-pattern" class="sr-only">
-                    Only alphabetic characters are allowed.
-                </span>
+                <section class="name">
+                    <div class="form-field">
+                        <label class="text-label" for="first-name">
+                            First Name
+                            <span class="required" aria-hidden="true">*</span>
+                        </label>
+                        <input type="text" name="first-name" id="first-name" required
+                            aria-describedby="first-name-error first-name-pattern">
+                        <span id="first-name-error" class="sr-only" role="alert">
+                            This field is required.
+                        </span>
+                        <span id="first-name-pattern" class="sr-only">
+                            Only alphabetic characters are allowed.
+                        </span>
+                    </div>
 
-                <label for="last-name">
-                    Last Name
-                    <span class="required" aria-hidden="true">*</span>
-                </label>
-                <input type="text" name="last-name" id="last-name" required
-                    aria-describedby="last-name-error last-name-pattern">
-                <span id="last-name-error" class="sr-only" role="alert">
-                    This field is required.
-                </span>
-                <span id="last-name-pattern" class="sr-only">
-                    Only alphabetic characters are allowed.
-                </span>
+                    <div class="form-field">
+                        <label class="text-label" for="last-name">
+                            Last Name
+                            <span class="required" aria-hidden="true">*</span>
+                        </label>
+                        <input type="text" name="last-name" id="last-name" required
+                            aria-describedby="last-name-error last-name-pattern">
+                        <span id="last-name-error" class="sr-only" role="alert">
+                            This field is required.
+                        </span>
+                        <span id="last-name-pattern" class="sr-only">
+                            Only alphabetic characters are allowed.
+                        </span>
+                    </div>
+                </section>
 
-                <label for="email">
-                    Email Address
-                    <span class="required" aria-hidden="true">*</span>
-                </label>
-                <input type="email" name="email" id="email" required aria-describedby="email-error email-pattern">
-                <span id="email-error" class="sr-only">
-                    This field is required.
-                </span>
-                <span id="email-pattern" class="sr-only">
-                    Please enter a valid email address.
-                </span>
+                <section class="email">
+                    <div class="form-field">
+                        <label class="text-label" for="email">
+                            Email Address
+                            <span class="required" aria-hidden="true">*</span>
+                        </label>
+                        <input type="email" name="email" id="email" required
+                            aria-describedby="email-error email-pattern">
+                        <span id="email-error" class="sr-only">
+                            This field is required.
+                        </span>
+                        <span id="email-pattern" class="sr-only">
+                            Please enter a valid email address.
+                        </span>
+                    </div>
+                </section>
 
-                <fieldset aria-describedby="query-type-error">
-                    <legend>
-                        Query Type
-                        <span class="required" aria-hidden="true">*</span>
-                    </legend>
-                    <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry" required>
-                    <label for="general-enquiry">
-                        General Enquiry
-                    </label>
+                <section class="query-type">
+                    <fieldset class="radio-group-container" aria-describedby="query-type-error">
+                        <legend class="text-label">
+                            Query Type
+                            <span class="required" aria-hidden="true">*</span>
+                        </legend>
+                        <div class="radio-group">
+                            <label class="radio-field">
+                                <input type="radio" name="query-type" id="general-enquiry" value="general-enquiry"
+                                    required>
+                                <label class="text-label" for="general-enquiry">
+                                    General Enquiry
+                                </label>
+                            </label>
 
-                    <input type="radio" name="query-type" id="support-request" value="support-request">
-                    <label for="support-request">
-                        Support Request
-                    </label>
-                    <span id="query-type-error" class="sr-only">
-                        This field is required. Please select a query type
-                    </span>
-                </fieldset>
+                            <label class="radio-field">
+                                <input type="radio" name="query-type" id="support-request" value="support-request">
+                                <label class="text-label" for="support-request">
+                                    Support Request
+                                </label>
+                            </label>
+                        </div>
+                        <span id="query-type-error" class="sr-only">
+                            This field is required. Please select a query type
+                        </span>
+                    </fieldset>
+                </section>
 
-                <label for="message">
-                    Message
-                    <span class="required" aria-hidden="true">*</span>
-                </label>
-                <textarea name="message" id="message" required aria-describedby="message-error"></textarea>
-                <span id="message-error" class="sr-only">
-                    This field is required. Please enter your message.
-                </span>
+                <section class="message">
+                    <div class="form-field">
+                        <label class="text-label" for="message">
+                            Message
+                            <span class="required" aria-hidden="true">*</span>
+                        </label>
+                        <textarea class="textarea-input" name="message" id="message" required
+                            aria-describedby="message-error"></textarea>
+                        <span id="message-error" class="sr-only">
+                            This field is required. Please enter your message.
+                        </span>
+                    </div>
+                </section>
 
-                <div class="consent">
-                    <input type="checkbox" name="consent" id="consent-agree" required aria-describedby="consent-error">
-                    <label for="consent-agree">
-                        I consent to being contacted by the team
-                        <span class="required" aria-hidden="true">*</span>
-                    </label>
-                    <span id="consent-error" class="sr-only">
-                        To submit this form, please consent to being contacted
-                    </span>
-                </div>
+                <section class="consent">
+                    <div class="form-field">
+                        <div class="consent">
+                            <label class="consent-checkbox">
+                                <input type="checkbox" name="consent" id="consent-agree" required
+                                    aria-describedby="consent-error">
+                                <span></span>
+                            </label>
+                            <label class="text-label consent-label" for="consent-agree">
+                                I consent to being contacted by the team
+                                <span class="required" aria-hidden="true">*</span>
+                            </label>
+                            <span id="consent-error" class="sr-only">
+                                To submit this form, please consent to being contacted
+                            </span>
+                        </div>
+                    </div>
+                </section>
 
-                <button type="submit">Submit</button>
+                <button class="submit-btn text-button" type="submit">Submit</button>
 
                 <!-- toast notification -->
                 <div class="contact-form-success">

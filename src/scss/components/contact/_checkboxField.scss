@@ -1,0 +1,52 @@
+@use '../../abstracts' as a;
+
+.consent {
+    @include a.flexbox($align: center, $gap: a.rem(16));
+
+    input[type="checkbox"] {
+        appearance: none;
+    }
+
+    label.consent-label {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    label.consent-checkbox {
+        @include a.flexbox($align: center);
+
+        &:hover {
+            cursor: pointer;
+
+            span {
+                border: var(--border-secondary);
+            }
+        }
+
+        input {
+            visibility: hidden;
+            /* <-- Hide the default checkbox. The rest is to hide and allow tabbing, which display:none prevents */
+            display: block;
+            height: 0;
+            width: 0;
+            position: absolute;
+            overflow: hidden;
+
+            &:checked+span {
+                background-image: url('/assets/images/icon-checkbox-check.svg');
+                background-position: center;
+                border: none;
+                border-radius: a.rem(3);
+            }
+        }
+
+        span {
+            width: a.rem(18);
+            height: a.rem(18);
+            border: 1.5px solid var(--Granny-Smith);
+            display: inline-block;
+            border-radius: a.rem(3);
+        }
+    }
+}

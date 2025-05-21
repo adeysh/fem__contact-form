@@ -1,0 +1,17 @@
+@use '../../abstracts' as a;
+
+.textarea-input {
+    height: 200px;
+    border: var(--border-primary);
+    border-radius: a.rem(8);
+    resize: none;
+    padding: a.rem(5) a.rem(10);
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: var(--border-secondary);
+        outline: none;
+    }
+
+}

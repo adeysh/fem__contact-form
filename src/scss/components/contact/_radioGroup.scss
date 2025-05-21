@@ -1,0 +1,70 @@
+@use '../../abstracts' as a;
+
+.radio-group-container {
+    border: none;
+    padding: 0;
+
+    legend {
+        color: var(--Limed-Spruce);
+        letter-spacing: a.rem(0.8);
+        margin-block-end: a.rem(12);
+    }
+
+    .radio-group {
+        @include a.flexbox($direction: column, $gap: a.rem(12));
+
+        @include a.bp($from: "tablet") {
+            @include a.flexbox($direction: row, $gap: a.rem(16));
+        }
+
+        .radio-field {
+            @include a.flexbox($align: center, $gap: a.rem(16));
+            width: 100%;
+            border: var(--border-primary);
+            height: a.rem(50);
+            padding: a.rem(10) a.rem(24);
+
+            &:hover,
+            input:hover,
+            label:hover {
+                cursor: pointer;
+                border: var(--border-secondary);
+            }
+
+            border-radius: a.rem(8);
+
+            label {
+                color: var(--Limed-Spruce);
+            }
+
+            input[type="radio"] {
+                appearance: none;
+                width: a.rem(18);
+                height: a.rem(18);
+                border: var(--border-primary);
+                border-radius: 50%;
+                display: grid;
+                place-content: center;
+            }
+
+            input[type="radio"]::before {
+                content: "";
+                width: 0.65em;
+                height: 0.65em;
+                border-radius: 50%;
+                transform: scale(0);
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em var(--Surfie-Green);
+            }
+
+            input[type="radio"]:checked::before {
+                transform: scale(1);
+            }
+
+            &:has(input[type="radio"]:focus) {
+                border: var(--border-secondary);
+                background-color: var(--Apple-Green);
+            }
+        }
+    }
+}

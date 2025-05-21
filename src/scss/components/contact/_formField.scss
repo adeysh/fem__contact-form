@@ -1,0 +1,26 @@
+@use '../../abstracts' as a;
+
+.form-field {
+    @include a.flexbox($direction: column, $justify: center, $gap: a.rem(5));
+    width: 100%;
+
+    label {
+        color: var(--Limed-Spruce);
+        letter-spacing: a.rem(0.8);
+    }
+
+    input {
+        height: a.rem(50);
+        border: var(--border-primary);
+        border-radius: a.rem(8);
+        padding: a.rem(2) a.rem(10);
+
+        &:hover,
+        &:focus,
+        &:active {
+            cursor: pointer;
+            border: var(--border-secondary);
+            outline: none;
+        }
+    }
+}

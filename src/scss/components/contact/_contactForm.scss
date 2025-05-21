@@ -1,0 +1,35 @@
+@use '../../abstracts' as a;
+
+.form-container {
+    background-color: var(--White);
+    padding: clamp(1.25rem, 0.25rem + 5vw, 2.5rem);
+    height: 100%;
+}
+
+.contact-form {
+    height: 100%;
+    @include a.flexbox($direction: column, $gap: a.rem(40));
+
+    section {
+        @include a.flexbox($direction: column, $gap: a.rem(40));
+
+        &.name {
+            @include a.bp($from: "tablet") {
+                @include a.flexbox($direction: row, $justify: center, $gap: a.rem(16));
+            }
+
+
+        }
+    }
+
+    h1 {
+        color: var(--Limed-Spruce);
+    }
+
+    // media queries
+
+}
+
+.required {
+    margin-inline-start: a.rem(2);
+}

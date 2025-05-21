@@ -6,6 +6,7 @@
     // primary
     --green-200: #dff1e7;
     --green-600: #0c7d69;
+    --green-700: #084c40;
     --red: #d73c3c;
 
     // neutral
@@ -28,10 +29,10 @@
     --ff: 'Karla', sans-serif;
 
     // font-size
-    --fs-body: #{rem(16)};
-    --fs-small: #{rem(18)};
-    --fs-medium: #{rem(24)};
-    --fs-large: #{rem(32)};
+    --fs-body: clamp(0.875rem, 0.85rem + 0.125vw, 1rem);
+    // --fs-small: #{rem(18)};
+    // --fs-medium: #{rem(24)};
+    --fs-large: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
 
     // font-weight
     --fw-regular: 400;
@@ -53,10 +54,21 @@
         font-size: var(--fs-body);
     }
 
+    .text-button {
+        font-family: var(--ff);
+        font-weight: var(--fw-bold);
+        font-style: normal;
+        font-size: var(--fs-body);
+    }
+
     .text-body {
         font-family: var(--ff);
         font-weight: var(--fw-regular);
         font-style: normal;
         font-size: var(--fs-body);
     }
+
+    // border
+    --border-primary: 1.5px solid var(--Granny-Smith);
+    --border-secondary: 1.5px solid var(--Surfie-Green);
 }

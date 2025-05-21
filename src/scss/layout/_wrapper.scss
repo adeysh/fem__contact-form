@@ -1,0 +1,13 @@
+@use '../abstracts' as a;
+
+.wrapper {
+    width: min(a.rem(800), 100% - a.rem(40));
+    // margin-block-start: a.rem(200);
+    // margin-block-end: a.rem(200);
+    height: 100%;
+    margin-block-start: a.rem(40);
+    margin-block-end: a.rem(40);
+    border: none;
+    border-radius: a.rem(12);
+    overflow: hidden;
+}
