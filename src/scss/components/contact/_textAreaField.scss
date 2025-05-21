@@ -6,12 +6,17 @@
     border-radius: a.rem(8);
     resize: none;
     padding: a.rem(5) a.rem(10);
+    letter-spacing: a.rem(0.8);
 
     &:hover,
     &:focus,
     &:active {
         border: var(--border-secondary);
         outline: none;
+    }
+
+    &.error-visible {
+        border: var(--border-error);
     }
 
 }

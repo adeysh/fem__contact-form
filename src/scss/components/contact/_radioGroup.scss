@@ -10,6 +10,11 @@
         margin-block-end: a.rem(12);
     }
 
+    span.query-type-error {
+        margin-block-start: a.rem(5);
+        display: block;
+    }
+
     .radio-group {
         @include a.flexbox($direction: column, $gap: a.rem(12));
 
@@ -25,8 +30,7 @@
             padding: a.rem(10) a.rem(24);
 
             &:hover,
-            input:hover,
-            label:hover {
+            input:hover {
                 cursor: pointer;
                 border: var(--border-secondary);
             }

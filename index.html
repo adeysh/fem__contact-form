@@ -29,7 +29,7 @@
     <main class="wrapper">
         <div class="form-container">
             <!-- contact form start -->
-            <form class="contact-form" novalidate>
+            <form class="contact-form" id="contact-form" novalidate>
                 <h1 class="contact-form__heading text-heading-l">
                     Contact Us
                 </h1>
@@ -40,7 +40,7 @@
                             First Name
                             <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <input type="text" name="first-name" id="first-name" required
+                        <input class="text-body" type="text" name="first-name" id="first-name" required
                             aria-describedby="first-name-error first-name-pattern">
                         <span id="first-name-error" class="sr-only" role="alert">
                             This field is required.
@@ -55,7 +55,7 @@
                             Last Name
                             <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <input type="text" name="last-name" id="last-name" required
+                        <input class="text-body" type="text" name="last-name" id="last-name" required
                             aria-describedby="last-name-error last-name-pattern">
                         <span id="last-name-error" class="sr-only" role="alert">
                             This field is required.
@@ -72,7 +72,7 @@
                             Email Address
                             <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <input type="email" name="email" id="email" required
+                        <input class="text-body" type="email" name="email" id="email" required
                             aria-describedby="email-error email-pattern">
                         <span id="email-error" class="sr-only">
                             This field is required.
@@ -105,7 +105,7 @@
                                 </label>
                             </label>
                         </div>
-                        <span id="query-type-error" class="sr-only">
+                        <span id="query-type-error" class="sr-only query-type-error">
                             This field is required. Please select a query type
                         </span>
                     </fieldset>
@@ -117,7 +117,7 @@
                             Message
                             <span class="required" aria-hidden="true">*</span>
                         </label>
-                        <textarea class="textarea-input" name="message" id="message" required
+                        <textarea class="textarea-input text-body" name="message" id="message" required
                             aria-describedby="message-error"></textarea>
                         <span id="message-error" class="sr-only">
                             This field is required. Please enter your message.
@@ -129,18 +129,18 @@
                     <div class="form-field">
                         <div class="consent">
                             <label class="consent-checkbox">
-                                <input type="checkbox" name="consent" id="consent-agree" required
+                                <input type="checkbox" name="consent" id="consent" required
                                     aria-describedby="consent-error">
                                 <span></span>
                             </label>
-                            <label class="text-label consent-label" for="consent-agree">
+                            <label class="text-label consent-label" for="consent">
                                 I consent to being contacted by the team
                                 <span class="required" aria-hidden="true">*</span>
                             </label>
-                            <span id="consent-error" class="sr-only">
-                                To submit this form, please consent to being contacted
-                            </span>
                         </div>
+                        <span id="consent-error" class="sr-only">
+                            To submit this form, please consent to being contacted
+                        </span>
                     </div>
                 </section>
 
