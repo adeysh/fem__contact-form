@@ -9,7 +9,7 @@ body {
     position: relative;
     font-family: var(--ff);
     font-size: var(--fs-body);
-    background-color: var(--Apple-Green);
+    background-color: var(--Limed-Spruce);
     @include a.flexbox($direction: column, $align: center, $justify: center);
     height: auto;
 }
