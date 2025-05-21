@@ -11,8 +11,8 @@
     padding: a.rem(18) a.rem(24);
     color: var(--White);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-
-    transition: all 0.5s ease;
+    min-inline-size: a.rem(300);
+    transition: all 0.5s ease-in-out;
 
     &.visible {
         transform: translate(-50%, 0);
