@@ -101,4 +101,18 @@ form.addEventListener("submit", (e) => {
             }
         }
     }
+
+    if (isValid) {
+        showNotification();
+    }
 });
+
+function showNotification() {
+    const toast = document.querySelector(".contact-form-success");
+    toast.classList.add("visible");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+        toast.classList.remove("visible");
+    }, 2000);
+}

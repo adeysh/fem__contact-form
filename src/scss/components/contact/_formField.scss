@@ -1,7 +1,7 @@
 @use '../../abstracts' as a;
 
 .form-field {
-    @include a.flexbox($direction: column, $justify: center, $gap: a.rem(5));
+    @include a.flexbox($direction: column, $justify: flex-start, $gap: a.rem(5));
     width: 100%;
 
     label {

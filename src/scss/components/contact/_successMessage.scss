@@ -1,5 +1,33 @@
 @use '../../abstracts' as a;
 
 .contact-form-success {
-    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -1000px);
+    opacity: 0;
+    background-color: var(--Limed-Spruce);
+    border-radius: a.rem(8);
+    padding: a.rem(18) a.rem(24);
+    color: var(--White);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+    transition: all 0.5s ease;
+
+    &.visible {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    @include a.flexbox($direction: column, $gap: a.rem(8));
+
+    &__header {
+        @include a.flexbox($align: center, $gap: a.rem(16));
+    }
+
+    &__description {
+        color: var(--Apple-Green);
+        letter-spacing: a.rem(0.8);
+    }
+
 }

@@ -30,7 +30,7 @@
 
     // font-size
     --fs-body: clamp(0.875rem, 0.85rem + 0.125vw, 1rem);
-    // --fs-small: #{rem(18)};
+    --fs-small: clamp(1rem, 0.8rem + 1vw, 1.25rem);
     // --fs-medium: #{rem(24)};
     --fs-large: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
 
@@ -45,6 +45,13 @@
         font-weight: var(--fw-bold);
         font-style: normal;
         font-size: var(--fs-large);
+    }
+
+    .text-heading-m {
+        font-family: var(--ff);
+        font-weight: var(--fw-bold);
+        font-style: normal;
+        font-size: var(--fs-small);
     }
 
     .text-label {
