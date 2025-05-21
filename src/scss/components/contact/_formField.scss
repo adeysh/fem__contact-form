@@ -7,6 +7,10 @@
     label {
         color: var(--Limed-Spruce);
         letter-spacing: a.rem(0.8);
+
+        span {
+            font-weight: var(--fw-bold);
+        }
     }
 
     input {

@@ -11,6 +11,10 @@
         &:hover {
             cursor: pointer;
         }
+
+        span {
+            font-weight: var(--fw-bold);
+        }
     }
 
     label.consent-checkbox {
@@ -36,6 +40,8 @@
             &:checked+span {
                 background-image: url('/assets/images/icon-checkbox-check.svg');
                 background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 border: none;
                 border-radius: a.rem(3);
             }
@@ -47,6 +53,7 @@
             border: 1.5px solid var(--Granny-Smith);
             display: inline-block;
             border-radius: a.rem(3);
+            transition: all 0.2s ease;
         }
     }
 }
