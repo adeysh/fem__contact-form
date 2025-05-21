@@ -18,23 +18,28 @@
     }
 
     label.consent-checkbox {
+        position: relative;
         @include a.flexbox($align: center);
 
         &:hover {
             cursor: pointer;
 
             span {
-                border: var(--border-secondary);
+                border: var(--border-active);
             }
         }
 
         input {
-            visibility: hidden;
+            // visibility: hidden;
             /* <-- Hide the default checkbox. The rest is to hide and allow tabbing, which display:none prevents */
             display: block;
-            height: 0;
-            width: 0;
+            height: 1rem;
+            width: 1rem;
             position: absolute;
+            opacity: 0;
+            left: 0;
+            top: 0;
+            z-index: 1;
             overflow: hidden;
 
             &:checked+span {
@@ -44,6 +49,10 @@
                 background-size: cover;
                 border: none;
                 border-radius: a.rem(3);
+            }
+
+            &:focus-visible+span {
+                border: var(--border-active);
             }
         }
 

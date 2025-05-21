@@ -29,14 +29,14 @@
         .radio-field {
             @include a.flexbox($align: center, $gap: a.rem(16));
             width: 100%;
-            border: var(--border-primary);
+            border: var(--border-inactive);
             height: a.rem(50);
             padding: a.rem(10) a.rem(24);
 
             &:hover,
             input:hover {
                 cursor: pointer;
-                border: var(--border-secondary);
+                border: var(--border-active);
             }
 
             border-radius: a.rem(8);
@@ -53,10 +53,15 @@
                 appearance: none;
                 width: a.rem(18);
                 height: a.rem(18);
-                border: var(--border-primary);
+                border: var(--border-inactive);
+                outline: none;
                 border-radius: 50%;
                 display: grid;
                 place-content: center;
+
+                &:focus-visible {
+                    outline: var(--border-active);
+                }
             }
 
             input[type="radio"]::before {
@@ -77,8 +82,10 @@
                 border: none;
             }
 
-            &:has(input[type="radio"]:focus) {
-                border: var(--border-secondary);
+            &:has(input[type="radio"]:focus),
+            &:has(input[type="radio"]:checked) {
+                outline: none;
+                border: var(--border-active);
                 background-color: var(--Apple-Green);
             }
         }

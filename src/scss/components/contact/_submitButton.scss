@@ -3,12 +3,14 @@
 .submit-btn {
     height: a.rem(50);
     border: none;
+    outline: none;
     background-color: var(--Surfie-Green);
     border-radius: a.rem(8);
     color: var(--White);
     letter-spacing: a.rem(0.8);
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
         cursor: pointer;
         transition: background-color 200ms ease-in-out;
         background-color: var(--green-700);

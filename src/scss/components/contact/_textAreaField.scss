@@ -2,16 +2,16 @@
 
 .textarea-input {
     height: 200px;
-    border: var(--border-primary);
+    border: var(--border-inactive);
     border-radius: a.rem(8);
     resize: none;
-    padding: a.rem(5) a.rem(10);
+    padding: a.rem(10) a.rem(24);
     letter-spacing: a.rem(0.8);
 
     &:hover,
     &:focus,
     &:active {
-        border: var(--border-secondary);
+        border: var(--border-active);
         outline: none;
     }
 
