@@ -26,17 +26,37 @@
             @include a.bp($from: "tablet") {
                 @include a.flexbox($direction: row, $justify: center, $gap: a.rem(16));
             }
+        }
 
+        span.sr-only,
+        span.sr-only.error-visible {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            opacity: 0;
+            transition: none;
+        }
 
+        span.error-visible {
+            position: static;
+            left: auto;
+            width: auto;
+            height: auto;
+            opacity: 1;
+            max-height: 100px;
+            overflow: visible;
+            transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+            display: block;
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
         }
     }
 
     h1 {
         color: var(--Limed-Spruce);
     }
-
-    // media queries
-
 }
 
 .required {

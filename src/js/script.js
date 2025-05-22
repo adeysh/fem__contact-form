@@ -1,4 +1,5 @@
 const form = document.getElementById("contact-form");
+const inputs = form.querySelectorAll("input[type='text'], input[type='email']");
 
 function isAlphabetic(str) {
     return /^[a-zA-Z]+$/.test(str);
@@ -29,6 +30,44 @@ function hideError(container, errorId) {
     container.classList.remove("error-visible");
     container.removeAttribute("aria-invalid");
 }
+
+function validateField(input) {
+    const field = input.id;
+    const value = input.value.trim();
+    let isValid = true;
+
+    const errorEl = document.getElementById(`${field}-error`);
+    const patternEl = document.getElementById(`${field}-pattern`);
+
+    if (value === "") {
+        showError(input, `${field}-error`);
+        isValid = false;
+    } else {
+        hideError(input, `${field}-pattern`);
+        hideError(input, `${field}-error`);
+
+        if ((field === "first-name" || field === "last-name") && !isAlphabetic(value)) {
+            showError(input, `${field}-pattern`);
+            isValid = false;
+        } else if (patternEl) {
+            hideError(input, `${field}-pattern`);
+        }
+
+        if (field === "email" && !validateEmail(value)) {
+            showError(input, `email-pattern`);
+            isValid = false;
+        } else if (field === "email") {
+            hideError(input, `email-pattern`);
+        }
+    }
+
+    return isValid;
+
+}
+
+inputs.forEach((input) => {
+    input.addEventListener("blur", () => validateField(input));
+});
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
