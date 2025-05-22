@@ -36,21 +36,22 @@ function validateField(input) {
     const value = input.value.trim();
     let isValid = true;
 
-    const errorEl = document.getElementById(`${field}-error`);
-    const patternEl = document.getElementById(`${field}-pattern`);
+    const errorId = `${field}-error`;
+    const patternId = `${field}-pattern`;
+    const patternEl = document.getElementById(patternId);
 
     if (value === "") {
-        showError(input, `${field}-error`);
+        showError(input, errorId);
         isValid = false;
     } else {
-        hideError(input, `${field}-pattern`);
-        hideError(input, `${field}-error`);
+        hideError(input, patternId);
+        hideError(input, errorId);
 
         if ((field === "first-name" || field === "last-name") && !isAlphabetic(value)) {
-            showError(input, `${field}-pattern`);
+            showError(input, patternId);
             isValid = false;
         } else if (patternEl) {
-            hideError(input, `${field}-pattern`);
+            hideError(input, patternId);
         }
 
         if (field === "email" && !validateEmail(value)) {
