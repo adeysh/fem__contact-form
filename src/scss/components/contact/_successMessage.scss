@@ -23,6 +23,11 @@
 
     &__header {
         @include a.flexbox($align: center, $gap: a.rem(16));
+
+        img {
+            width: a.rem(20);
+            height: a.rem(21);
+        }
     }
 
     &__description {
