@@ -1,5 +1,6 @@
 const form = document.getElementById("contact-form");
-const inputs = form.querySelectorAll("input[type='text'], input[type='email']");
+const textInputs = form.querySelectorAll("input[type='text'], input[type='email'], textarea");
+
 
 function isAlphabetic(str) {
     return /^[a-zA-Z]+$/.test(str);
@@ -11,63 +12,62 @@ function validateEmail(email) {
     );
 };
 
-function showError(container, errorId) {
+function toggleError(container, errorId, show = true) {
     const errorEl = document.getElementById(errorId);
-    if (errorEl) {
+    if (!errorEl) return;
+
+    if (show) {
         errorEl.classList.remove("sr-only");
         errorEl.classList.add("error-visible");
-    }
-    container.classList.add("error-visible");
-    container.setAttribute("aria-invalid", "true");
-}
-
-function hideError(container, errorId) {
-    const errorEl = document.getElementById(errorId);
-    if (errorEl) {
+        container.classList.add("error-visible");
+        container.setAttribute("aria-invalid", "true");
+    } else {
         errorEl.classList.add("sr-only");
         errorEl.classList.remove("error-visible");
+        container.classList.remove("error-visible");
+        container.removeAttribute("aria-invalid");
     }
-    container.classList.remove("error-visible");
-    container.removeAttribute("aria-invalid");
 }
 
-function validateField(input) {
+function validateTextField(input) {
     const field = input.id;
     const value = input.value.trim();
     let isValid = true;
 
     const errorId = `${field}-error`;
-    const patternId = `${field}-pattern`;
-    const patternEl = document.getElementById(patternId);
+    // textarea does not have any pattern
+    const hasPattern = (field === "first-name" || field === "last-name" || field === "email");
+    const patternId = hasPattern ? `${field}-pattern` : null;
+    const patternEl = hasPattern ? document.getElementById(patternId) : null;
 
     if (value === "") {
-        showError(input, errorId);
+        toggleError(input, errorId, true);
         isValid = false;
     } else {
-        hideError(input, patternId);
-        hideError(input, errorId);
+        toggleError(input, errorId, false);
+
+        if (hasPattern) toggleError(input, patternId, false);
 
         if ((field === "first-name" || field === "last-name") && !isAlphabetic(value)) {
-            showError(input, patternId);
+            toggleError(input, patternId, true);
             isValid = false;
         } else if (patternEl) {
-            hideError(input, patternId);
+            toggleError(input, patternId, false);
         }
 
         if (field === "email" && !validateEmail(value)) {
-            showError(input, `email-pattern`);
+            toggleError(input, `email-pattern`, true);
             isValid = false;
         } else if (field === "email") {
-            hideError(input, `email-pattern`);
+            toggleError(input, `email-pattern`, false);
         }
     }
-
     return isValid;
-
 }
 
-inputs.forEach((input) => {
-    input.addEventListener("blur", () => validateField(input));
+// for [first-name, last-name, email, message] live validation
+textInputs.forEach((input) => {
+    input.addEventListener("blur", () => validateTextField(input));
 });
 
 form.addEventListener("submit", (e) => {
@@ -77,25 +77,29 @@ form.addEventListener("submit", (e) => {
 
     const requiredFields = ["first-name", "last-name", "email", "message"];
 
+    // validate text input fields
     requiredFields.forEach((field) => {
         const input = document.getElementById(field);
         const value = data[field] || "";
 
+        const errorId = `${field}-error`;
+        const patternId = `${field}-pattern`;
+
         if (!value.trim()) {
-            showError(input, `${field}-error`);
+            toggleError(input, errorId, true);
             isValid = false;
         } else {
-            hideError(input, `${field}-error`);
+            toggleError(input, errorId, false);
 
             if ((field === "first-name" || field === "last-name") && !isAlphabetic(value)) {
-                showError(input, `${field}-pattern`);
+                toggleError(input, patternId, true);
                 isValid = false;
             } else if (field === "email" && !validateEmail(value)) {
-                showError(input, `email-pattern`);
+                toggleError(input, `email-pattern`, true);
                 isValid = false;
             } else {
                 if (document.getElementById(`${field}-pattern`)) {
-                    hideError(input, `${field}-pattern`);
+                    toggleError(input, patternId, false);
                 }
             }
         }
@@ -105,19 +109,20 @@ form.addEventListener("submit", (e) => {
     const queryTypeFieldset = document.querySelector("fieldset.radio-group-container");
 
     if (!data["query-type"]) {
-        showError(queryTypeFieldset, "query-type-error");
+        toggleError(queryTypeFieldset, "query-type-error", true);
         isValid = false;
     } else {
-        hideError(queryTypeFieldset, "query-type-error");
+        toggleError(queryTypeFieldset, "query-type-error", false);
     }
 
     // validate checkbox (consent)
     const consentInput = document.getElementById("consent");
+
     if (!data["consent"]) {
-        showError(consentInput, "consent-error");
+        toggleError(consentInput, "consent-error", true);
         isValid = false;
     } else {
-        hideError(consentInput, "consent-error");
+        toggleError(consentInput, "consent-error", false);
     }
 
     if (isValid) {
